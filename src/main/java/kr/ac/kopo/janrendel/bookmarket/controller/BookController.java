@@ -5,8 +5,7 @@ import kr.ac.kopo.janrendel.bookmarket.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +20,19 @@ public class BookController {
         model.addAttribute("bookList,listOfBooks");
         return "books";
     }
+
+    @GetMapping("/book")
+    public String requestBookId(@RequestParam("id")String bookId,Model model){
+        Book book = bookService.getBookByID(bookId);
+        model.addAttribute("book",book);
+        return "book";
+    }
+
+    @GetMapping("/{category}")
+    public String requestBooksByCategory(@PathVariable("category") String bookCategory,Model model){
+        List<Book> booksByCategory = bookService.getBookByCategory(bookCategory);
+        model.addAttribute("bookList",booksByCategory);
+        return "books";
+    }
+
 }

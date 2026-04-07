@@ -4,8 +4,8 @@ import kr.ac.kopo.janrendel.bookmarket.domain.Book;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+
 
 @Repository
 public class BookRepositoryImpl implements BookRepository{
@@ -55,5 +55,60 @@ public class BookRepositoryImpl implements BookRepository{
     @Override
     public List<Book> getALLBookList() {
         return ListOfBooks;
+    }
+
+    @Override
+    public Book getBookByID(String bookId){
+        Book book = null;
+        for (Book serchBook: ListOfBooks){
+            if (serchBook != null && serchBook.getBookId() != null && serchBook.getBookId().equals(bookId)){
+                book = serchBook;
+                break;
+            }
+        }
+        if (book == null){
+//            throw new IllegalAccessException("도서ID가"+ bookId + "인 도서는 찾을 수가 없습니다.");
+        }
+        return book;
+
+    }
+
+    @Override
+    public List<Book> getBookListByCategory(String category) {
+        List<Book> booksByCategory = new ArrayList<Book>();
+
+        for (Book searchBook : ListOfBooks){
+            if (category.equalsIgnoreCase(searchBook.getBookId()))
+                booksByCategory.add(searchBook);
+        }
+
+        return booksByCategory;
+
+
+    }
+
+    @Override
+    public Set<Book> getBookListByFilter(Map<String, List<String>> filter) {
+        Set<Book> booksByCategory = new HashSet<Book>();
+        Set<Book> booksByPublisher = new HashSet<Book>();
+        Set<String> booksByFilter = filter.keySet();
+
+        if(booksByFilter.contains("publisher")){
+            for (String publisherName : filter.get("publiser")){
+                for (Book searchBook : ListOfBooks){
+                    if(publisherName.equalsIgnoreCase(searchBook.getPublisher()))
+                        booksByPublisher.add(searchBook);
+                }
+            }
+        }
+        if(booksByFilter.contains("category")){
+            for (String category : filter.get("category")){
+                List<Book> list = getBookListByCategory(category);
+                booksByCategory.addAll(list);
+            }
+        }
+        booksByCategory.retainAll(booksByPublisher);
+
+        return booksByCategory;
     }
 }

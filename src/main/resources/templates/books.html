@@ -9,10 +9,15 @@
 
 	<div class="container py-4">
 		<header class="pb-3 mb-4 border-bottom">
-			<a href="Welcome.html" class="d-flex align-items-center text-body-emphasis text-decoration-none">
-				<img src="../static/img/book_img.png" alt="book_img" class="bi bi-book-galf me-2" width="50">
-				<span class="fs-4 m-2">BookMarket</span>
-			</a>
+			<div class="container d-flex flex-wrap justiry-content-center">
+				<a href="/BookMarket/home" class="d-flex align-items-center text-body-emphasis text-decoration-none mb-3 mb-lg-0 me-lg-auto">
+					<img src="../static/img/book_img.png" alt="book_img" class="bi bi-book-galf me-2" width="50">
+					<span class="fs-4 m-2">BookMarket</span>
+				</a>
+			</div>
+			<a href="/Bookmarket/books/IT전문서" class="nav-link">IT전문서</a> &nbsp; &nbsp;
+			<a href="/Bookmarket/books/IT교육교재"class=nav-link">IT교육교재</a>
+			<a href="/Bookmarket/books/소설" class="nav-link">한국소설</a>
 		</header>
 		<div class="p-5 mb-4 bg-body-tertiary rounded-3">
 			<div class="container-fluid py-5">
@@ -24,7 +29,7 @@
 	<div class="p-5 mb-4 bg-body-tertiary rounded-3">
  		<div class="container-fluid py-5">
 			<h1 class="display-5 fw-bold">도서 목록</h1>
-			<p class="col-md-8 fs-4">BookMarket</p>       
+			<p class="col-md-8 fs-4">BookMarket</p>
 		</div>
 	</div>
 
@@ -33,14 +38,15 @@
 		<img th:src="'/BookMarket/images/'+${book.fileName}" alt="image" style = "width: 60%" />
 			<h3 th:text ="${book.name}"></h3>
 			<p th:text = "${book.author}">
-			<p th:text = "${book.publisher} + '|'+ ${book.releaseDate}"> 
+			<p th:text = "${book.publisher} + '|'+ ${book.releaseDate}">
 			<p align="left" th:text = "${book.description}">
-			<p th:text = "${book.unitPrice}+'원'">	
-			<p><a th:href= "'/BookMarket/books/book?id='+${book.bookId}" class=" btn btn-Secondary" role="button">상세정보 &raquo;</a> 
-		</div>  
+			<p th:text = "${book.unitPrice}+'원'">
+			<p><a th:href= "'/BookMarket/books/book?id='+${book.bookId}" class=" btn btn-Secondary" role="button">상세정보 &raquo;</a>
+		</div>
 
   </div>
 
+</div>
 </div>
 </body>
 </html>
