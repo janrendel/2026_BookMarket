@@ -15,7 +15,8 @@ public class BookRepositoryImpl implements BookRepository{
         Book book1 = new Book();
         book1.setBookId("isbn1234");
         book1.setName("스프링 부트 완전정복");
-        book1.setDecription("웹 기반의 관공서 위기관리 시스템·의학 용어 온라인 평가 시스템·중도 탈락 예방 시스템 개발, 앱 기반의 전자동화 및 교육용 게임 개발, 유니티를 이용한 가상현실 콘텐츠 개발 등 다양한 실무 경험을" +
+        book1.setDecription(
+                "웹 기반의 관공서 위기관리 시스템·의학 용어 온라인 평가 시스템·중도 탈락 예방 시스템 개발, 앱 기반의 전자동화 및 교육용 게임 개발, 유니티를 이용한 가상현실 콘텐츠 개발 등 다양한 실무 경험을" +
                 " 쌓고 자바, 웹 프로그래밍(JSP/PHP), 스프링, 안드로이드 프로그래밍, 유니티 엔진, VR/AR 프로그래밍 등을 강의했습니다. 현재 수원여자대학교 교수로 재직하면서 컴퓨터 비전, 모바일 게임, 가상현실 등을 연구...");
         book1.setPublisher("길벗캠퍼스");
         book1.setCategory("IT전문서");
@@ -36,20 +37,19 @@ public class BookRepositoryImpl implements BookRepository{
         book1.setAuthor("김연희");
         book2.setUnitPrice(new BigDecimal(29000));
         book2.setReleaseDate("2022/10/15");
-        
-        Book book3 = new Book();
-        book3.setBookId("isbn8675");
-        book3.setName("나의 완벽한 장례식");
-        book3.setDecription("보통 때라면 손님 한 명 찾기 힘든 새벽 두 시의 병원 매점. 가장 고요해야 할 이 시간, 언제부턴가 수상한 손님들이 하나둘 찾아오기 시작한다. 모두 그림자가 없다는 희한한 공통점을");
-        book3.setPublisher("북로망스");
-        book3.setCategory("한국소설");
-        book1.setAuthor("조현선");
-        book3.setUnitPrice(new BigDecimal(17000));
-        book3.setReleaseDate("2026/01/21");
+
+//        Book book3 = new Book();
+//        book3.setBookId("isbn8675");
+//        book3.setName("나의 완벽한 장례식");
+//        book3.setDecription("보통 때라면 손님 한 명 찾기 힘든 새벽 두 시의 병원 매점. 가장 고요해야 할 이 시간, 언제부턴가 수상한 손님들이 하나둘 찾아오기 시작한다. 모두 그림자가 없다는 희한한 공통점을");
+//        book3.setPublisher("북로망스");
+//        book3.setCategory("한국소설");
+//        book1.setAuthor("조현선");
+//        book3.setUnitPrice(new BigDecimal(17000));
+//        book3.setReleaseDate("2026/01/21");
 
         ListOfBooks.add(book1);
         ListOfBooks.add(book2);
-        ListOfBooks.add(book3);
     }
 
     @Override
@@ -83,8 +83,6 @@ public class BookRepositoryImpl implements BookRepository{
         }
 
         return booksByCategory;
-
-
     }
 
     @Override
