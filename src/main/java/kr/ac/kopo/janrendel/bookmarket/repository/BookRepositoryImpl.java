@@ -13,43 +13,58 @@ public class BookRepositoryImpl implements BookRepository{
 
     public BookRepositoryImpl() {
         Book book1 = new Book();
-        book1.setBookId("isbn1234");
-        book1.setName("스프링 부트 완전정복");
-        book1.setDecription(
-                "웹 기반의 관공서 위기관리 시스템·의학 용어 온라인 평가 시스템·중도 탈락 예방 시스템 개발, 앱 기반의 전자동화 및 교육용 게임 개발, 유니티를 이용한 가상현실 콘텐츠 개발 등 다양한 실무 경험을" +
-                " 쌓고 자바, 웹 프로그래밍(JSP/PHP), 스프링, 안드로이드 프로그래밍, 유니티 엔진, VR/AR 프로그래밍 등을 강의했습니다. 현재 수원여자대학교 교수로 재직하면서 컴퓨터 비전, 모바일 게임, 가상현실 등을 연구...");
+        book1.setBookId("isbn0001");
+        book1.setName("스프링부트완전정복");
+        book1.setUnitPrice(BigDecimal.valueOf(35000));
+        book1.setAuthor("송미영");
+        book1.setDecription("스프링 부트는 스프링을 기반으로 쉽고 빠르게 웹 애플리케이션을 개발할 수 있는 도구이다. " +
+                "이 책에서는 스프링 부트의 기본 개념을 쉽게 이해하고 다양한 실습 예제로 빠르게 익힐 수 있다. " +
+                "그리고 단계별 실습을 따라 하다 보면 도서 쇼핑몰 구축 프로젝트를 완성할 수 있다. " +
+                "개념-실습-프로젝트의 3단계 학습으로 스프링 부트를 제대로 익힌다면 개발 시간을 단축하고 생산성을 높일 수 있는 개발자로 성장할 수 있다.");
         book1.setPublisher("길벗캠퍼스");
-        book1.setCategory("IT전문서");
-        book1.setAuthor("ooo");
-        book1.setUnitPrice(new BigDecimal(35000));
-        book1.setReleaseDate("2024/10/31");
-        
-        Book book2 = new Book();
-        book2.setBookId("isbn5435");
-        book2.setName("데이터베이스개론");
-        book2.setDecription("이터베이스로 첫 항해를 떠나는 이들에게 지도와 돛이 되어주는 책입니다.\n" +
-                "마인드맵으로 생소한 개념 간의 관계를 한눈에 보여주고,\n" +
-                "친근한 예와 비유를 들어 명료하게 풀어내, 데이터베이스 기본기를 탄탄히 다져줍니다.\n" +
-                "3판에서는 빅데이터 표현 기술이 더 추가되었고\n" +
-                "다양한 시험의 최신 기술 경향에 맞게 연습문제를 보강하였습니다.");
-        book2.setPublisher("한빛아카데미");
-        book2.setCategory("IT교육재");
-        book1.setAuthor("김연희");
-        book2.setUnitPrice(new BigDecimal(29000));
-        book2.setReleaseDate("2022/10/15");
+        book1.setCategory("IT교재");
+        book1.setUnitstock(1000);
+        book1.setReleaseDate("2024/12/31");
+        book1.setCondition("신규도서");
+        book1.setFileName("isbn0001.jpg");
 
-//        Book book3 = new Book();
-//        book3.setBookId("isbn8675");
-//        book3.setName("나의 완벽한 장례식");
-//        book3.setDecription("보통 때라면 손님 한 명 찾기 힘든 새벽 두 시의 병원 매점. 가장 고요해야 할 이 시간, 언제부턴가 수상한 손님들이 하나둘 찾아오기 시작한다. 모두 그림자가 없다는 희한한 공통점을");
-//        book3.setPublisher("북로망스");
-//        book3.setCategory("한국소설");
-//        book1.setAuthor("조현선");
-//        book3.setUnitPrice(new BigDecimal(17000));
-//        book3.setReleaseDate("2026/01/21");
+        Book book2 = new Book();
+        book2.setBookId("isbn0002");
+        book2.setName("안드로이드 프로그래밍");
+        book2.setUnitPrice(BigDecimal.valueOf(34000));
+        book2.setAuthor("우재남, 박길식");
+        book2.setDecription("이 책은 대학교나 IT 전문학원의 안드로이드 프로그래밍 과목 수강생을 대상으로 한다. " +
+                "기본적인 프로그래밍을 접해본 독자라면 Java 기초부터 시작하여 안드로이드 앱 개발까지 한번에 학습할 수 있도록 구성되어 있다. " +
+                "특별히 이번 9판에서는 버전업을 적용하여 JDK 17, Android 14.0(U), Android Studio Hedgehog에서 실습할 수 있다. " +
+                "또한 연습문제 일부를 변경하였으며, 13장에 ‘경기도 맛집 찾기 앱 만들기’ 프로젝트를 추가하였다.");
+        book2.setPublisher("한빛아카데미");
+        book2.setCategory("IT교재");
+        book2.setUnitstock(800);
+        book2.setReleaseDate("2024/01/19");
+        book2.setCondition("신규도서");
+        book2.setFileName("isbn0002.jpg");
+
+        Book book3 = new Book();
+        book3.setBookId("isbn0003");
+        book3.setName("혼자 공부하는 머신러닝 딥러닝");
+        book3.setUnitPrice(BigDecimal.valueOf(25000));
+        book3.setAuthor("박해선");
+        book3.setDecription("이 책은 수식과 이론으로 중무장한 머신러닝, 딥러닝 책에 지친 ‘독학하는 입문자’가 ‘꼭 필요한 내용을 제대로’ 학습할 수 있도록 구성했다. " +
+                "구글 머신러닝 전문가(Google ML expert)로 활동하고 있는 저자는 여러 차례의 입문자들과 함께한 머신러닝&딥러닝 스터디와 번역·집필 경험을 통해 " +
+                "‘무엇을’ ‘어떻게’ 학습해야 할지 모르는 입문자의 막연함을 이해하고, 과외 선생님이 알려주듯 친절하게 핵심적인 내용을 콕콕 집어준다.");
+        book3.setPublisher("한빛아카데미");
+        book3.setCategory("IT전문서");
+        book3.setUnitstock(1000);
+        book3.setReleaseDate("2020/12/21");
+        book3.setCondition("신규도서");
+        book3.setFileName("isbn0003.jpg");
+
+
 
         ListOfBooks.add(book1);
         ListOfBooks.add(book2);
+        ListOfBooks.add(book3);
+
     }
 
     @Override
@@ -108,5 +123,10 @@ public class BookRepositoryImpl implements BookRepository{
         booksByCategory.retainAll(booksByPublisher);
 
         return booksByCategory;
+    }
+
+    @Override
+    public void setNewBook(Book book){
+        ListOfBooks.add(book);
     }
 }

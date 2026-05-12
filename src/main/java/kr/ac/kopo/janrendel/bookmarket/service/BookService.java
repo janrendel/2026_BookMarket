@@ -13,4 +13,6 @@ public interface BookService {
     Book getBookByID(String bookId);
     List<Book> getBookByCategory(String category);
     Set<Book> getBookListByFilter(Map<String, List<String>> filter);
+    void addBook(Book book);
+    void setNewBook(Book book);
 }
